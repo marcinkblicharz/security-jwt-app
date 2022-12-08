@@ -1,19 +1,20 @@
 package mabi.securityjwtapp;
 
-import mabi.securityjwtapp.models.AuthenticationRequest;
-import mabi.securityjwtapp.models.AuthenticationResponse;
-import mabi.securityjwtapp.services.MyUserDetailsServices;
-import mabi.securityjwtapp.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import mabi.securityjwtapp.models.AuthenticationRequest;
+import mabi.securityjwtapp.models.AuthenticationResponse;
+import mabi.securityjwtapp.services.MyUserDetailsServices;
+import mabi.securityjwtapp.util.JwtUtil;
 
 @RestController
 public class Hello {
@@ -30,8 +31,11 @@ public class Hello {
 //	@GetMapping("/hello")
 //	@ResponseBody
 	@RequestMapping("/hello")
+//	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String hello() {
-		return "Hello World";
+		String hello = "Hello";
+//		return "Hello World";
+		return hello;
 	}
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
